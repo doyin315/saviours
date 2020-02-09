@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<head>
+<title>Easybin Admin Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+
+<link rel="stylesheet" href="assets/css/morris.css" type="text/css"/>
+<link rel="stylesheet" href="assets/css/monthly.css">
+<script src="assets/js/raphael-min.js"></script>
+</head>
+<div class="vh-100">
+<section id="container">
+<!--header start-->
+<header class="header fixed-top clearfix">
+<!--logo start-->
+<div class="brand">
+    <a href="index.html" class="logo">
+        EASYBIN
+    </a>
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars"></div>
+    </div>
+</div>
+<!--logo end-->
+<div class="nav notify-row" id="top_menu">
+    <!--  notification start -->
+    <ul class="nav top-menu">
+        <!-- settings start -->
+        <li class="">
+            <a data-toggle="dropdown" data-color = "27C24C" class="bin-filter dropdown-toggle" href="#">
+                <i class="fa fa-trash-o"></i>
+                <span class="badge bg-success">10</span>
+            </a>
+
+        </li>
+        <!-- settings end -->
+        <!-- inbox dropdown start-->
+        <li id="" class="">
+            <a data-toggle="" class="bin-filter" data-color = "FF6C60" href="#">
+                <i class="fa fa-trash-o"></i>
+                <span class="badge bg-important">7</span>
+            </a>
+        </li>
+        <!-- inbox dropdown end -->
+        <!-- notification dropdown start-->
+        <li id="" class="">
+            <a data-toggle="" data-color = "FCB322" class="bin-filter" href="#">
+
+                <i class="fa fa-trash-o"></i>
+                <span class="badge bg-warning">6</span>
+            </a>
+
+        </li>
+
+        <li id="" class="">
+                <a data-toggle="" class="show-all-markers" href="#">
+                    <i class="fa fa- fa-refresh"></i>
+                </a>
+
+            </li>
+        <!-- notification dropdown end -->
+    </ul>
+    <!--  notification end -->
+</div>
+</header>
+<!--header end-->
+<!--sidebar start-->
+<aside>
+    <div style="z-index:1000;" id="sidebar" class="nav-collapse">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a class="active" href="index.html">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+
+                <li class="">
+                    <a href="javascript:;" data-toggle = "modal" data-target = "#add-bin">
+                        <i class="fa fa-plus-square"></i>
+                        <span>Add bin device </span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa  fa-truck"></i>
+                        <span>Trucks </span>
+                    </a>
+                   <!-- <ul class="sub">
+                        <li><a href="">Add new</a></li>
+                        <li><a href="">See all</a></li>
+                    </ul> -->
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class=" fa fa-bar-chart-o"></i>
+                        <span>Analytics</span>
+                    </a>
+                    <!-- <ul class="sub">
+                        <li><a href="chartjs.html">Chart js</a></li>
+                        <li><a href="flot_chart.html">Flot Charts</a></li>
+                    </ul> -->
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class=" fa   fa-map-marker"></i>
+                        <span>Routes</span>
+                    </a>
+                    <!--  <ul class="sub">
+                        <li><a href="#" data-toggle="modal" data-target="#new-route-modal">Create new</a></li>
+                        <li><a href="/route">See all</a></li>
+                    </ul> -->
+                </li>
+
+                <li>
+                    <a href="login.html">
+                        <i class="fa fa-user"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>            </div>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+
+<div class="modal fade" id="add-bin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Add bin</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div> -->
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                  <label for="binLoc">Location</label>
+                  <input type="text" class="form-control" id="binLoc" aria-describedby="binLocDesc" placeholder="Enter bin location">
+                  <small id="binLocDesc" class="form-text text-muted">.</small>
+                </div>
+                <div class="form-group">
+                  <label for="binID">Device ID</label>
+                  <input type="text" class="form-control" maxlength="3" id="binID" placeholder="Enter device Identity code">
+                </div>
+
+                <div class="form-group">
+                    <label for="binType">Device Type</label>
+                    <select class="form-control" id="binType">
+                      <option>Cap</option>
+                      <option>Bin</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="binCap">Bin Capacity</label>
+                    <input type="number" class="form-control" id="binCap" placeholder="">
+                  </div>
+                  <div style="text-align:center;">
+                    <button type="submit" class="btn btn-primary">ADD DEVICE</button>
+                  </div>
+               </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<aside id = "marker-panel">
+    <div style="" id="sidebar" class="nav-collapse">
+        <!-- sidebar menu start-->
+        <div class="rightside-navigation">
+            <a href = "#" onclick="closePanel();" style="color:red;float:right;">x</a>
+            <h4 style="text-align:center;" class="center">Bin <p class="bin-label">34</p></h4>
+            <ul class="">
+                    <br><br>
+                <li>
+                    Bin Level: <span>45%</span>
+                </li>
+                <br>
+                <li>
+                    Last empty date:<p> 5 days ago</p>
+                </li>
+                <br>
+                <li>
+                    Device active state:<p> OFF</p>
+                </li>
+                <br>
+                <li>
+                    Location: <p class="bin-loc"></p>
+                </li>
+                <br>
+                <li>
+                        <button type="button" class="btn btn-success btn-block">75% Battery</button>
+                </li>
+                <br>
+                <button  type="button" style="color:black" class="btn btn-secondary btn-lg btn-block"  data-toggle="modal" data-target="#routes-modal"> <i class="fa fa-map-marker"></i>Add to route</button>
+            </ul>
+        </div>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+
+<div class="modal fade" id="new-route-modal" tabindex="-1" role="dialog" aria-labelledby="newRouteCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+    <form method="GET" action="/route/save">
+         <div class="modal-header">
+          <h5 class="modal-title" id="newRouteCenterTitle">Create new route</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+           <div class="form-group">
+                <label for="route-name">Route name</label>
+                <input name="routeName" required type="text" class="form-control" placeholder="e.g ">
+            </div>
+            <div class="form-group">
+                    <label for="truck-id">Truck ID</label>
+                    <input type="text" required name="truckID" class="form-control" id="truck-id" placeholder="Which truck would run this route?">
+            </div>
+            <div class="row" style="padding:15px;">
+                <div class="form-group col">
+                  <input type="date" class="form-control" name="routeDay" placeholder="Route day">
+                </div>
+              </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="routes-modal" tabindex="-1" role="dialog" aria-labelledby="route-modal-title" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="route-modal-title">Routes</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <ul>
+
+        <!--<% data.routes.forEach(function(route, index){
+          <div class="form-check ">
+              <input class="form-check-input" type="radio" name="routes" id="<%= item._id %>" value="<%= item.routeName %>">
+              <label class="form-check-label" for="inlineRadio2"><%= route.routeName %></label>
+            </div>
+          <%
+          }); %> -->
+     </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Select route</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--sidebar end-->
+<!--main content start-->
+<section id="main-content">
+	<section class="wrapper">
+		<!-- //market-->
+
+		<!-- //market-->
+
+	  <div class="map-container">
+      <div #mapContainer id="map" class="row">
+
+      </div>
+	  </div>
+
+
+
+			<!-- tasks -->
+
+
+</section>
+ <!-- footer -->
+		  <!-- <div class="footer">
+			<div class="wthree-copyright">
+			  <p>© 2017 Visitors. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+			</div>
+		  </div> -->
+  <!-- / footer -->
+</section>
+<!--main content end-->
+</section>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+
+<!-- morris JavaScript -->
+<!-- calendar -->
+    <script type="text/javascript" src="assets/js/monthly.js"></script>
+    <script  type="text/javascript" src="assets/js/map.js"></script>
+    <script>
+            </script>
+            <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+            </script>
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+          <agm-marker *ngFor="let marker of locations"  [latitude]="marker.lat" [longitude]="marker.lng"></agm-marker>
+          </agm-map>
+
+</div>
+
