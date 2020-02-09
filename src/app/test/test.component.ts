@@ -10,9 +10,9 @@ export class TestComponent implements OnInit {
   constructor(private service: AuthService) { }
 
   ngOnInit() {
-    this.service.getdata().subscribe( data => {
+   /* this.service.getdata().subscribe( data => {
       this.crimes = data;
-    })
+    })*/
   }
 
 }

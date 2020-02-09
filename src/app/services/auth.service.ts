@@ -4,7 +4,7 @@ import {IUser} from '../models/user';
 import {ICrimes} from '../models/crimes';
 import {Observable} from 'rxjs';
 
-var cors = require('cors');
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +17,10 @@ export class AuthService {
   data;
   crimes;
 
-  postdata(){
+  /*postdata(){
     return  this.http.post<IUser>(this.api, {title: 'User data'}).subscribe(data =>{this.data = data;})
   }
   getdata(): Observable<ICrimes> {
     return this.http.get<ICrimes>(this.crimedata_api);
-  }
+  }*/
 }
